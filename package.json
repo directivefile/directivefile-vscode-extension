@@ -4,7 +4,10 @@
   "description": "Syntax highlighting and formatting for Directivefile configuration files.",
   "version": "0.0.4",
   "publisher": "directivefile",
-  "icon": "./icons/extension-icon.png",
+  "repository": {
+    "type": "GitHub",
+    "url": "https://github.com/directivefile/directivefile-vscode-extension"
+  },
   "categories": [
     "Programming Languages",
     "Formatters"
@@ -13,6 +16,7 @@
     "directivefile",
     "formatter"
   ],
+  "icon": "./icons/extension-icon.png",
   "contributes": {
     "languages": [
       {
