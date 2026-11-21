@@ -1,0 +1,59 @@
+{
+  "name": "df",
+  "displayName": "Directivefile",
+  "description": "Syntax highlighting and formatting for Directivefile configuration files.",
+  "version": "0.0.4",
+  "publisher": "directivefile",
+  "icon": "./icons/extension-icon.png",
+  "categories": [
+    "Programming Languages",
+    "Formatters"
+  ],
+  "keywords": [
+    "directivefile",
+    "formatter"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "directivefile",
+        "aliases": [
+          "Directivefile"
+        ],
+        "configuration": "./directivefile.configuration.json",
+        "icon": {
+          "light": "./icons/directivefile-light.png",
+          "dark": "./icons/directivefile-dark.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "directivefile",
+        "scopeName": "source.directivefile",
+        "path": "./syntaxes/directivefile.tmLanguage.json",
+        "tokenTypes": {
+          "comment.line.number-sign.directivefile": "comment",
+          "string.quoted.double.directivefile": "string",
+          "string.quoted.other.backtick.directivefile": "string"
+        }
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.146.0"
+  },
+  "type": "module",
+  "main": "./dist/extension.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.146.0",
+    "@vscode/vsce": "^4.1.1",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.6"
+  }
+}

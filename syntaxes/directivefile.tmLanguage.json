@@ -1,0 +1,127 @@
+{
+    "scopeName": "source.directivefile",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#directive-name"
+        },
+        {
+            "include": "#directive-param"
+        }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [
+                {
+                    "include": "#directive-keyword"
+                },
+                {
+                    "include": "#continuation-line"
+                },
+                {
+                    "include": "#block-delimiters"
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.number-sign.directivefile",
+                    "match": "#.*$"
+                }
+            ]
+        },
+        "directive-name": {
+            "name": "entity.name.function.directivefile",
+            "match": "^[ \\t]*[^ \\t\\r\\\"`#{}]+"
+        },
+        "directive-param": {
+            "patterns": [
+                {
+                    "include": "#env-param"
+                },
+                {
+                    "include": "#unquoted-param"
+                },
+                {
+                    "include": "#double-quoted-param"
+                },
+                {
+                    "include": "#backtick-quoted-param"
+                }
+            ]
+        },
+        "env-param": {
+            "patterns": [
+                {
+                    "include": "#env-param-delimiters"
+                }
+            ]
+        },
+        "continuation-line": {
+            "name": "punctuation.separator.continuation.directivefile",
+            "match": "(?<=[^ \\t])[ \\t]*\\\\[ \\t\\r]*$"
+        },
+        "block-delimiters": {
+            "patterns": [
+                {
+                    "name": "punctuation.section.block.begin.directivefile",
+                    "match": "(?<!\\S)\\{(?=[ \\t\\r]*(?:#.*)?$)"
+                },
+                {
+                    "name": "punctuation.section.block.end.directivefile",
+                    "match": "^[ \\t]*\\}(?=[ \\t\\r]*(?:#.*)?$)"
+                }
+            ]
+        },
+        "double-quoted-param": {
+            "name": "string.quoted.double.directivefile",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.directivefile",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "backtick-quoted-param": {
+            "name": "string.quoted.other.backtick.directivefile",
+            "begin": "`",
+            "end": "`"
+        },
+        "unquoted-param": {
+            "name": "variable.parameter.directivefile",
+            "match": "[^ \t\r\"`]+"
+        },
+        "env-param-delimiters": {
+            "begin": "\\{\\$(?=[A-Za-z_][A-Za-z0-9_]*\\})",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.variable.begin.directivefile"
+                }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.variable.end.directivefile"
+                }
+            },
+            "patterns": [
+                {
+                    "name": "variable.other.env.directivefile",
+                    "match": "[A-Za-z_][A-Za-z0-9_]*"
+                }
+            ]
+        },
+        "directive-keyword": {
+            "name": "keyword.control.directivefile",
+            "match": "^[ \\t]*(?:import|include)(?=[ \\t\\r]|$)"
+        }
+    }
+}
