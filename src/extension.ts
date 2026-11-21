@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { registerDiagnostics } from "./diagnostics.js";
 import { format } from "./formatter/formatter.js";
 
 const LANGUAGE_ID = "directivefile";
@@ -6,6 +7,8 @@ const DEFAULT_PRINT_WIDTH = 100;
 const DEFAULT_MAX_BLANK_LINES = 1;
 
 export function activate(context: vscode.ExtensionContext): void {
+  registerDiagnostics(context);
+
   context.subscriptions.push(
     vscode.languages.registerDocumentFormattingEditProvider(LANGUAGE_ID, {
       provideDocumentFormattingEdits(document, options) {
