@@ -2,7 +2,7 @@
   "name": "df",
   "displayName": "Directivefile",
   "description": "Syntax highlighting and formatting for Directivefile configuration files.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "directivefile",
   "repository": {
     "type": "GitHub",
@@ -42,7 +42,24 @@
           "string.quoted.other.backtick.directivefile": "string"
         }
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Directivefile",
+      "properties": {
+        "directivefile.format.printWidth": {
+          "type": "number",
+          "default": 100,
+          "minimum": 1,
+          "description": "Maximum line width used by the Directivefile formatter."
+        },
+        "directivefile.format.maxBlankLines": {
+          "type": "integer",
+          "default": 1,
+          "minimum": 0,
+          "description": "Maximum number of blank lines kept between directives and comments."
+        }
+      }
+    }
   },
   "engines": {
     "vscode": "^1.146.0"
@@ -57,6 +74,8 @@
   "devDependencies": {
     "@types/vscode": "^1.146.0",
     "@vscode/vsce": "^4.1.1",
+    "antlr4": "^4.13.2",
+    "prettier": "^3.10.1",
     "typescript": "~7.0.2",
     "vite": "^8.3.6"
   }
