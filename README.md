@@ -15,22 +15,30 @@ Language support for [Directivefile](https://github.com/directivefile) configura
 
 ## Settings
 
+### Other file suffixes
+
+- `.df` files are associated automatically. 
+- For files with another suffix, map them to the `directivefile` language with a glob pattern:
+
+```json
+"files.associations": {
+  "*.your_suffix": "directivefile"
+}
+```
+
+- For files without a suffix, use a glob pattern that matches the file name:
+
+```json
+"files.associations": {
+  "your_glob_pattern": "directivefile"
+}
+```
+
 ## Formatter Settings
 
 ```json
 "[directivefile]": {
   "editor.defaultFormatter": "directivefile.df",
   "editor.formatOnSave": true
-}
-```
-
-### Other file suffixes
-
-- `.df` files are associated automatically. 
-- For other suffixes, map them to the `directivefile` language with a glob pattern:
-
-```json
-"files.associations": {
-  "*.other_suffix": "directivefile"
 }
 ```
