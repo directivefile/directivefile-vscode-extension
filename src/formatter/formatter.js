@@ -26,7 +26,7 @@ import { buildTree, buildDoc } from "./printer.js";
  */
 export function format(source, options = {}) {
   const {
-    printWidth = 100,
+    printWidth = 120,
     tabWidth = 4,
     useTabs = false,
     endOfLine = "lf",

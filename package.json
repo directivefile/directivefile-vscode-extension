@@ -2,10 +2,11 @@
   "name": "df",
   "displayName": "Directivefile",
   "description": "Syntax highlighting and formatting for Directivefile configuration files.",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "publisher": "directivefile",
+  "license": "MIT",
   "repository": {
-    "type": "GitHub",
+    "type": "git",
     "url": "https://github.com/directivefile/directivefile-vscode-extension"
   },
   "categories": [
@@ -23,6 +24,9 @@
         "id": "directivefile",
         "aliases": [
           "Directivefile"
+        ],
+        "extensions": [
+          ".df"
         ],
         "configuration": "./directivefile.configuration.json",
         "icon": {
@@ -48,14 +52,16 @@
       "properties": {
         "directivefile.format.printWidth": {
           "type": "number",
-          "default": 100,
+          "default": 120,
           "minimum": 1,
+          "scope": "resource",
           "description": "Maximum line width used by the Directivefile formatter."
         },
         "directivefile.format.maxBlankLines": {
           "type": "integer",
           "default": 1,
           "minimum": 0,
+          "scope": "resource",
           "description": "Maximum number of blank lines kept between directives and comments."
         }
       }
@@ -67,9 +73,11 @@
   "type": "module",
   "main": "./dist/extension.js",
   "scripts": {
-    "dev": "vite",
+    "vscode:prepublish": "npm run build",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "typecheck": "tsc",
+    "watch": "vite build --watch",
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/vscode": "^1.146.0",

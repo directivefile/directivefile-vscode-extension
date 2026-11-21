@@ -5,7 +5,7 @@ import { defineConfig } from "vite";
 // runtime and must never be bundled.
 export default defineConfig({
   build: {
-    target: "es2022",
+    target: "es2023",
     outDir: "dist",
     emptyOutDir: true,
     sourcemap: true,
@@ -13,7 +13,7 @@ export default defineConfig({
     lib: {
       entry: "src/extension.ts",
       formats: ["es"],
-      fileName: () => "extension.js",
+      fileName: "extension",
     },
     rollupOptions: {
       external: ["vscode"],
